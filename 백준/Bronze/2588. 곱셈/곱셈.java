@@ -40,7 +40,9 @@ public class Main {
     boolean check = length == 3;
     int i = a;
     if (!check) {
+      System.out.print("다시입력 > ");
       i = scanner.nextInt();
+      return valid(i, scanner);
     }
     return i;
   }
