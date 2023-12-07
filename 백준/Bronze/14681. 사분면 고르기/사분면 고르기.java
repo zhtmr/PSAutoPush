@@ -9,25 +9,29 @@ public class Main {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int x = readLine(br);
     int y = readLine(br);
-
-    // 1사, 2사, 3사, 4사
-//    int[] x = {1, -1, -1, 1};
-//    int[] y = {1, 1, -1, -1};
-    if (x > 0 && y > 0) {
-      System.out.println(1);
-    } else if (x < 0 && y > 0) {
-      System.out.println(2);
-    } else if (x < 0 && y < 0) {
-      System.out.println(3);
-    } else if (x > 0 && y < 0) {
-      System.out.println(4);
-    }
+    System.out.println(getQuadrant(x, y));
 
 
   }
 
   static int readLine(BufferedReader br) throws IOException {
     return Integer.parseInt(br.readLine());
+  }
+
+  static int getQuadrant(int x, int y){
+    if (x * y > 0) {
+      if (x > 0) {
+        return 1;
+      } else {
+        return 3;
+      }
+    } else {
+      if (x > 0) {
+        return 4;
+      } else {
+        return 2;
+      }
+    }
   }
 
 }
