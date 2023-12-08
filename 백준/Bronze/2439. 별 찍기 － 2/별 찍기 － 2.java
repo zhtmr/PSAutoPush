@@ -23,15 +23,15 @@ public class Main {
         int n = scan.nextInt();
         for (int i = 0; i < n; i++) {
           for (int j = n - 1; j > i; j--) {
-            bw.write(" ");
+            sb.append(" ");
           }
           for (int j = 0; j <= i; j++) {
-            bw.write("*");
+            sb.append("*");
           }
-          bw.write("\n");
+          sb.append("\n");
         }
+        bw.write(String.valueOf(sb));
         bw.close();
-
       }
       static class FastReader {
           BufferedReader br;
