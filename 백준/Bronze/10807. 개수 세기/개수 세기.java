@@ -33,7 +33,7 @@ public class Main {
       }
     }
 
-    bw.write(String.valueOf(count));
+    bw.write(String.valueOf(sb.append(count)));
     bw.flush();
     bw.close();
   }
