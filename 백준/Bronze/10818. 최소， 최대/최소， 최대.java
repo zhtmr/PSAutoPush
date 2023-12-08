@@ -26,12 +26,8 @@ public class Main {
 
         for (int i = 0; i < N; i++) {
           int a = scan.nextInt();
-          if (a > max) {
-            max = a;
-          }
-          if (a < min) {
-            min = a;
-          }
+          max = Math.max(a, max);
+          min = Math.min(a, min);
         }
         sb.append(min);
         sb.append(" ");
