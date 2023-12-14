@@ -1,9 +1,11 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,10 +15,10 @@ public class Main {
       //만약 개행까지 출력하고 싶으면 append('\n')을 추가
       static StringBuilder sb = new StringBuilder();
 
-      public static void main(String[] args) {
+      public static void main(String[] args) throws IOException {
           input();
       }
-      static void input(){
+      static void input() throws IOException {
         int n = scan.nextInt();
 
         for (int i = 0; i < n; i++) {
@@ -29,10 +31,14 @@ public class Main {
             if (j != 0 && j % r == 0) {
               k++;
             }
-            System.out.print(s.charAt(k));
+            sb.append(s.charAt(k));
           }
-          System.out.println();
+          sb.append('\n');
         }
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write(String.valueOf(sb));
+        bw.flush();
+        bw.close();
       }
       static class FastReader {
           BufferedReader br;
