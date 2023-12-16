@@ -18,7 +18,7 @@ public class Main {
       }
       static void input(){
         int n = scan.nextInt();
-        for (int i = 0; i < (2 * n - 1) / 2; i++) {
+        for (int i = 0; i < (2 * n - 1) >> 1; i++) {
           for (int j = n - 1; j > i; j--) {
             sb.append(" ");
           }
@@ -28,7 +28,7 @@ public class Main {
           sb.append("\n");
         }
 
-        for (int i = 0; i <= (2 * n - 1) / 2; i++) {
+        for (int i = 0; i <= (2 * n - 1) >> 1; i++) {
           for (int j = 0; j < i; j++) {
             sb.append(" ");
           }
