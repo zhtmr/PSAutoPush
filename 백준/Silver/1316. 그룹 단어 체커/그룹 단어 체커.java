@@ -37,9 +37,7 @@ public class Main {
     for (int i = 0; i < length; i++) {
       char c = str.charAt(i);
       arr[str.indexOf(c)]++;
-      if (i != 0 && c == str.charAt(i - 1)) {
-        continue;
-      } else if (i != 0 && c != str.charAt(i - 1)) {
+      if (i != 0 && c != str.charAt(i - 1)) {
         if (arr[str.indexOf(c)] > 1) {
           return false;
         }
