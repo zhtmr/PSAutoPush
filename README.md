@@ -3,6 +3,7 @@
 <a href="https://solved.ac/zhtmr"><img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=zhtmr&theme=dark"/></a>
 This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
 -->
+- 1 일 1 커밋 !!
 <table>
   <tr>
     <td valign="top"><a href="https://solved.ac/zhtmr"><img align="top" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=zhtmr&theme=dark"/></a></td>
