@@ -34,6 +34,7 @@ public class Main {
       for (int j = 0; j < arr.length; j++) {
         if (c == arr[j].charAt(0)) {
           result += (int) (j * Math.pow(n, s.length() - i - 1));
+          break;
         }
       }
     }
