@@ -7,6 +7,6 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 <table>
   <tr>
     <td valign="top"><a href="https://solved.ac/zhtmr"><img align="top" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=zhtmr&theme=dark"/></a></td>
-    <td valign="top"><img align="top" src="http://mazandi.herokuapp.com/api?handle=zhtmr&theme=cold"/></td>
+    <td valign="top"><img align="top" src="http://mazandi.herokuapp.com/api?handle=zhtmr&theme=dark"/></td>
   </tr>
 </table>
