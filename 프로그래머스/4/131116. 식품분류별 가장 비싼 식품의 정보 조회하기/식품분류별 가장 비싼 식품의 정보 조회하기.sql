@@ -11,3 +11,9 @@ and category in ('과자', '국', '김치', '식용유')
 order by price desc
 ;
 
+
+# SELECT CATEGORY,max(PRICE) as price, PRODUCT_NAME
+# from FOOD_PRODUCT
+# where CATEGORY In ('과자', '국', '김치','식용유')
+# group by CATEGORY
+# order by price desc
