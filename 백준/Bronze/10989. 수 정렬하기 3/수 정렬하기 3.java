@@ -1,8 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -16,21 +12,18 @@ public class Main {
 
   static void input() throws IOException {
     int N = scan.nextInt();
-    int[] arr = new int[N];
+    int[] cnt = new int[10001];
     for (int i = 0; i < N; i++) {
-      arr[i] = scan.nextInt();
+      cnt[scan.nextInt()]++;
     }
-
-    Arrays.sort(arr);
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    for (int i = 0; i < N; i++) {
-      try {
-        bw.write(arr[i] + "\n");
-      } catch (IOException e) {
-        e.printStackTrace();
+    for (int i = 1; i <= 10000; i++) {
+      if (cnt[i] > 0) {
+        for (int j = 0; j < cnt[i]; j++) {
+          sb.append(i).append('\n');
+        }
       }
     }
-    bw.close();
+    System.out.println(sb);
 
   }
 
