@@ -21,25 +21,18 @@ public class Main {
   }
 
   private static void sort(String[] arr) {
-
-    String[] distinct = Arrays.stream(arr).distinct().toArray(String[]::new);
-    for (int i = 0; i < distinct.length; i++) {
-      for (int j = i + 1; j < distinct.length; j++) {
-        if (distinct[i].length() > distinct[j].length()) {
-          String temp = distinct[i];
-          distinct[i] = distinct[j];
-          distinct[j] = temp;
-        } else if (distinct[i].length() == distinct[j].length()) {
-          if (distinct[i].compareTo(distinct[j]) > 0) {
-            String temp = distinct[i];
-            distinct[i] = distinct[j];
-            distinct[j] = temp;
-          }
-        }
+    Arrays.sort(arr, (o1, o2) -> {
+      if (o1.length() == o2.length()) {
+        return o1.compareTo(o2);
+      } else {
+        return o1.length() - o2.length();
       }
-    }
-    for (String s : distinct) {
-      System.out.println(s);
+    });
+    for (int i = 0; i < arr.length; i++) {
+      if (i > 0 && arr[i].equals(arr[i - 1])) {
+        continue;
+      }
+      System.out.println(arr[i]);
     }
   }
 
