@@ -12,9 +12,9 @@ public class Main {
 
   static void input() {
     int T = scan.nextInt();
+    boolean[] primeArr = sieve(1000000);
     for (int i = 0; i < T; i++) {
       int n = scan.nextInt();
-      boolean[] primeArr = sieve(n);
       goldbachCnt(primeArr, n);
     }
     System.out.println(sb);
