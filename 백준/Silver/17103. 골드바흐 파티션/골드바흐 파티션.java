@@ -12,7 +12,7 @@ public class Main {
 
   static void input() {
     int T = scan.nextInt();
-    boolean[] primeArr = sieve(1000000);
+    boolean[] primeArr = sieve();
     for (int i = 0; i < T; i++) {
       int n = scan.nextInt();
       goldbachCnt(primeArr, n);
@@ -20,13 +20,13 @@ public class Main {
     System.out.println(sb);
   }
 
-  static boolean[] sieve(int a) {
-    boolean[] arr = new boolean[a + 1];
+  static boolean[] sieve() {
+    boolean[] arr = new boolean[1000000 + 1];
     arr[0] = arr[1] = true;
 
-    for (int i = 2; i * i <= a; i++) {
+    for (int i = 2; i * i <= 1000000; i++) {
       if (!arr[i]) {
-        for (int j = i * i; j <= a; j += i) {
+        for (int j = i * i; j <= 1000000; j += i) {
           arr[j] = true;
         }
       }
