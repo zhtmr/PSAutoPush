@@ -10,12 +10,10 @@ class Solution {
           String string = split[i];
           if (!string.isEmpty()) {
             String front = string.substring(0, 1).toUpperCase();
-            result.append(front);
-            result.append(split[i], 1, split[i].length());
+            result.append(!front.isEmpty() ? front : "");
+            result.append(string.substring(1));
           }
-          if (i < split.length - 1) {
-            result.append(" ");
-          }
+          result.append(i < split.length - 1 ? " " : "");
         }
         return result.toString();
     }
