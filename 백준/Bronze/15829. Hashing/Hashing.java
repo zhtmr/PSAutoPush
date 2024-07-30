@@ -11,31 +11,27 @@ public class Main {
   }
 
   static void input() {
-    char[] alphabet = new char[27];
-    for (int i = 1; i <= 26; i++) {
-      alphabet[i] = (char) ('a' + i - 1);
-    }
 
     int L = scan.nextInt();
     String s = scan.next();
 
-    System.out.println(hashFun(alphabet, L, s));
+    System.out.println(hashFun(L, s));
 
   }
 
-  static int hashFun(char[] alphabet, int len, String s) {
+  static int hashFun(int len, String s) {
     int r = 31;
     int M = 1234567891;
-    double sum = 0;
-    for (int i = 0; i < s.length(); i++) {
-      for (int j = 0; j < alphabet.length; j++) {
-        if (s.charAt(i) == alphabet[j]) {
-          sum += j * Math.pow(r, i);
-        }
-      }
+    long v = 0;
+    long pow = 1;
+
+    for (int i = 0; i < len; i++) {
+      int val = s.charAt(i) - 'a' + 1;
+      v = (v + val * pow) % M;
+      pow = (pow * r) % M;
     }
 
-    return (int) (sum % M);
+    return (int) v;
   }
 
   static class FastReader {
