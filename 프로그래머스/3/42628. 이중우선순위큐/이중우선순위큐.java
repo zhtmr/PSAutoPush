@@ -3,24 +3,45 @@ import java.util.*;
 class Solution {
     public int[] solution(String[] operations) {
         
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+
+
         for (String command : operations) {
           if (command.contains("I")) {
-            maxHeap.add(Integer.valueOf(command.split(" ")[1]));
-            minHeap.add(Integer.valueOf(command.split(" ")[1]));
+            String num = command.split(" ")[1];
+            map.put(Integer.valueOf(num), map.getOrDefault(Integer.valueOf(num), 0) + 1);
           } else if (command.equals("D 1")) {
-            minHeap.remove(maxHeap.poll());
+            if (map.isEmpty()) {
+              continue;
+            }
+            Integer max = map.lastKey();
+            if (map.get(max) == 1) {
+              map.remove(max);
+            } else {
+              map.put(max, map.get(max) - 1);
+            }
           } else {
-            maxHeap.remove(minHeap.poll());
-            
+            if (map.isEmpty()) {
+              continue;
+            }
+            Integer min = map.firstKey();
+            if (map.get(min) == 1) {
+              map.remove(min);
+            } else {
+              map.put(min, map.get(min) - 1);
+            }
           }
         }
 
 
         int[] result = new int[2];
-        result[0] = maxHeap.peek() == null ? 0 : maxHeap.peek();
-        result[1] = minHeap.peek() == null ? 0 : minHeap.peek();
+        if (map.isEmpty()) {
+          result[0] = 0;
+          result[1] = 0;
+        } else {
+          result[0] = map.lastKey();
+          result[1] = map.firstKey();
+        }
         return result;
     }
 }
