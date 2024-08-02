@@ -2,17 +2,27 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] citations) {
-        int answer = 0;
-        Integer[] array = Arrays.stream(citations).boxed().toArray(Integer[]::new);
-        Arrays.sort(array, Collections.reverseOrder());
-        
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] >= i + 1) {
-              answer = i + 1;  
+        int n = citations.length;
+        int[] counts = new int[n + 1];
+
+        // 인용 횟수를 카운트
+        for (int c : citations) {
+            if (c >= n) {
+                counts[n]++;
             } else {
-                break;
+                counts[c]++;
             }
         }
-        return answer;
+
+        // H-Index 계산
+        int total = 0;
+        for (int i = n; i >= 0; i--) {
+            total += counts[i];
+            if (total >= i) {
+                return i;
+            }
+        }
+
+        return 0;
     }
 }
