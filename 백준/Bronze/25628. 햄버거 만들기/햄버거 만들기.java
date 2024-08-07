@@ -14,13 +14,7 @@ public class Main {
     bread = Integer.parseInt(st.nextToken());
     patty = Integer.parseInt(st.nextToken());
 
-    int count = 0;
-    while (bread >= 0 && patty >= 0) {
-      bread -= 2;
-      patty -= 1;
-      count++;
-    }
 
-    System.out.println(count - 1);
+    System.out.println(Math.min(bread / 2, patty));
   }
 }
