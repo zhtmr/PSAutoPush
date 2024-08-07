@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -32,22 +33,30 @@ public class Main {
       graph[y][x] = true;
     }
 
-
-    dfs(p1, p2, 0);
-    System.out.println(answer);
+    System.out.println(bfs(p1, p2));
   }
 
-  private static void dfs(int p1, int p2, int depth) {
-    if (p1 == p2) {
-      answer = depth;
-      return;
-    }
+  private static int bfs(int p1, int p2) {
+    LinkedList<int[]> queue = new LinkedList<>();
+    queue.add(new int[] {p1, 0});
     visited[p1] = true;
 
-    for (int j = 1; j <= n; j++) {
-      if (!visited[j] && graph[p1][j]) {
-        dfs(j, p2, depth + 1);
+    while (!queue.isEmpty()) {
+      int[] current = queue.poll();
+      int node = current[0];
+      int depth = current[1];
+
+      if (node == p2) {
+        return depth;
+      }
+
+      for (int i = 1; i <= n; i++) {
+        if (!visited[i] && graph[node][i]) {
+          visited[i] = true;
+          queue.add(new int[] {i, depth + 1});
+        }
       }
     }
+    return answer;
   }
 }
