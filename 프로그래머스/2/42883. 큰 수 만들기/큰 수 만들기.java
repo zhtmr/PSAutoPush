@@ -1,15 +1,31 @@
-public class Solution {
+import java.util.*;
+
+class Solution {
     public String solution(String number, int k) {
-        StringBuilder stack = new StringBuilder();
-        for (int i = 0; i < number.length(); i++) {
-            char num = number.charAt(i);
-            while (stack.length() > 0 && k > 0 && stack.charAt(stack.length() - 1) < num) {
-                stack.deleteCharAt(stack.length() - 1);
-                k--;
+        String answer = "";
+        
+        StringBuilder sb = new StringBuilder();
+          ArrayDeque<Character> stack = new ArrayDeque<>();
+
+          for (int i = 0; i < number.length(); i++) {
+            char c = number.charAt(i);
+            while (!stack.isEmpty() && stack.peek() < c && k > 0) {
+              stack.poll();
+              k--;
             }
-            stack.append(num);
-        }
-        // k가 남은 경우 뒤에서부터 제거
-        return stack.substring(0, stack.length() - k);
+            stack.push(c);
+          }
+
+
+         for (int i = 0; i < k; i++) {
+            stack.pop();
+          }
+
+          for (char c : stack) {
+            sb.append(c);
+          }
+
+          return sb.reverse().toString();
+        
     }
 }
