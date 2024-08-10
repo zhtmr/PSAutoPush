@@ -1,20 +1,15 @@
-class Solution {
+public class Solution {
     public String solution(String number, int k) {
-        StringBuilder sb = new StringBuilder();
-      int len = number.length() - k;
-      int idx = 0;
-
-      for (int i = 0; i < len; i++) {
-        char max = '0';
-        for (int j = idx; j <= k + i; j++) {
-          char c = number.charAt(j);
-          if (c > max) {
-            max = c;
-            idx = j + 1;
-          }
+        StringBuilder stack = new StringBuilder();
+        for (int i = 0; i < number.length(); i++) {
+            char num = number.charAt(i);
+            while (stack.length() > 0 && k > 0 && stack.charAt(stack.length() - 1) < num) {
+                stack.deleteCharAt(stack.length() - 1);
+                k--;
+            }
+            stack.append(num);
         }
-        sb.append(max);
-      }
-      return sb.toString();
+        // k가 남은 경우 뒤에서부터 제거
+        return stack.substring(0, stack.length() - k);
     }
 }
