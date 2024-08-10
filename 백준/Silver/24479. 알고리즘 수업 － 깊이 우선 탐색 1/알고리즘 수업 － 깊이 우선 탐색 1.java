@@ -44,9 +44,11 @@ public class Main {
 
     dfs(R);
 
+    StringBuilder sb = new StringBuilder();
     for (int i = 1; i <= N; i++) {
-      System.out.println(answer[i]);
+      sb.append(answer[i]).append("\n");
     }
+    System.out.println(sb);
   }
 
   private static void dfs(int r) {
