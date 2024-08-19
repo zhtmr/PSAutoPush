@@ -1,18 +1,23 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-       int[] lis = new int[nums.length];
-        int length = 0;
-
-        for (int num : nums) {
-          int pos = Arrays.binarySearch(lis, 0, length, num);
-          if (pos < 0) {
-            pos = -(pos + 1);
-          }
-          lis[pos] = num;
-          if (pos == length) {
-            length++;
-          }
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
-        return length;
+       
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp, 1);
+        
+        int maxLen = 1;
+        for(int i = 1; i < nums.length; i++) {
+          dp[i] = 1;
+          for (int j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+              dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+          }
+          maxLen = Math.max(maxLen, dp[i]);
+
+        }
+        return maxLen;
     }
 }
