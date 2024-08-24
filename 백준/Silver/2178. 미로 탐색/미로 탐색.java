@@ -29,15 +29,14 @@ public class Main {
       }
     }
 
-//    count = 1;
-    bfs(1, 1);
+    bfs();
     System.out.println(count);
   }
 
-  private static void bfs(int x, int y) {
+  private static void bfs() {
     Queue<int[]> queue = new LinkedList<>();
-    queue.add(new int[] {x, y, 1});
-    visited[x][y] = true;
+    queue.add(new int[] {1, 1, 1});
+    visited[1][1] = true;
 
     while (!queue.isEmpty()) {
       int[] current = queue.poll();
