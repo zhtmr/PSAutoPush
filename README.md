@@ -6,7 +6,20 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 - 1 일 1 커밋 !!
 <table>
   <tr>
+    <th colspan="2">백준</th>
+  </tr>
+  <tr>
     <td valign="top"><a href="https://solved.ac/zhtmr"><img align="top" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=zhtmr&theme=dark"/></a></td>
     <td valign="top"><img align="top" src="http://mazandi.herokuapp.com/api?handle=zhtmr&theme=dark"/></td>
+  </tr>
+  
+</table>
+<table>
+  <tr>
+    <th colspan="2">프로그래머스</th>
+  </tr>
+  <tr>
+    <td valign="top"><img align="top" src="https://raw.githubusercontent.com/zhtmr/Programmers_Badge_Generator/main/result/result.svg?cache=1"/></td>
+    
   </tr>
 </table>
