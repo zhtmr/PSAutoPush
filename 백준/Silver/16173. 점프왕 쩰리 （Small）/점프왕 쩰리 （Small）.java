@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -21,31 +23,37 @@ public class Main {
       }
     }
 
-    boolean dfs = dfs(0, 0);
-    if (dfs) {
+    boolean bfs = bfs(0, 0);
+    if (bfs) {
       System.out.println("HaruHaru");
     } else {
       System.out.println("Hing");
     }
   }
 
-  private static boolean dfs(int x, int y) {
+  private static boolean bfs(int x, int y) {
+    Queue<int[]> queue = new LinkedList<>();
+    queue.add(new int[] {x, y});
     visited[x][y] = true;
-    int jump = graph[x][y];
 
-    if (jump == -1) {
-      return true;
-    }
+    while (!queue.isEmpty()) {
+      int[] current = queue.poll();
+      int cx = current[0];
+      int cy = current[1];
+      int jump = graph[cx][cy];
 
-    if (y + jump < N && !visited[x][y + jump]) {
-      if (dfs(x, y + jump)) {
+      if (jump == -1) {
         return true;
       }
-    }
 
-    if (x + jump < N && !visited[x + jump][y]) {
-      if (dfs(x + jump, y)){
-        return true;
+      if (cy + jump < N && !visited[cx][cy + jump]) {
+        queue.add(new int[] {cx, cy + jump});
+        visited[cx][cy + jump] = true;
+      }
+
+      if (cx + jump < N && !visited[cx + jump][cy]) {
+        queue.add(new int[] {cx + jump, cy});
+        visited[cx + jump][cy] = true;
       }
     }
     return false;
