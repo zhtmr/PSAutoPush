@@ -9,7 +9,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
     <th colspan="2">백준</th>
   </tr>
   <tr>
-    <td valign="top"><a href="https://solved.ac/zhtmr"><img align="top" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=zhtmr&theme=dark"/></a></td>
+    <td valign="top"><a href="https://solved.ac/zhtmr"><img align="top" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=zhtmr&theme=dark&cache=1"/></a></td>
     <td valign="top"><img align="top" src="http://mazandi.herokuapp.com/api?handle=zhtmr&theme=dark"/></td>
   </tr>
   
